@@ -1,0 +1,45 @@
+# Created by Panotools::Script 0.27
+
+p E0 R0 f0 h1296 n"TIFF_m" u0 v90 w1296
+m g1 i0 m2 p0.00784314
+
+# Image lines
+i a0 b0 c0 d0 e0 f4 h2048 n"2294472375_24a3b8ef46_o.jpg" p0 r0 v360 w4096 y0
+i a0 b0 c0 d0 e0 f4 h2048 n"2294472375_24a3b8ef46_o.jpg" p0 r0 v360 w4096 y-90
+i a0 b0 c0 d0 e0 f4 h2048 n"2294472375_24a3b8ef46_o.jpg" p0 r0 v360 w4096 y180
+i a0 b0 c0 d0 e0 f4 h2048 n"2294472375_24a3b8ef46_o.jpg" p0 r0 v360 w4096 y90
+i a0 b0 c0 d0 e0 f4 h2048 n"2294472375_24a3b8ef46_o.jpg" p-90 r0 v360 w4096 y0
+i a0 b0 c0 d0 e0 f4 h2048 n"2294472375_24a3b8ef46_o.jpg" p90 r0 v360 w4096 y0
+
+# Variable lines
+v
+
+# Control point lines
+
+# Mask lines
+
+# option lines
+#hugin_blender enblend
+#hugin_enblendOptions 
+#hugin_enfuseOptions 
+#hugin_hdrmergeOptions 
+#hugin_optimizeReferenceImage 0
+#hugin_outputHDRBlended false
+#hugin_outputHDRLayers false
+#hugin_outputHDRStacks false
+#hugin_outputImageType tif
+#hugin_outputImageTypeCompression NONE
+#hugin_outputImageTypeHDR exr
+#hugin_outputImageTypeHDRCompression 
+#hugin_outputJPEGQuality 100
+#hugin_outputLDRBlended true
+#hugin_outputLDRExposureBlended false
+#hugin_outputLDRExposureLayers false
+#hugin_outputLDRExposureRemapped false
+#hugin_outputLDRLayers false
+#hugin_outputLayersCompression PACKBITS
+#hugin_remapper nona
+
+*
+
+# Output image lines
