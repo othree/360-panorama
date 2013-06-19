@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>css transform 3d cube panorama demo</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <style>
+            body {
+                background-color: #000000;
+                margin: 0px;
+                <!-- overflow: hidden; -->
+            }
+            #cube {
+                position: relative;
+                -webkit-transform-origin: 648px 648px 0;
+                -webkit-transform: perspective( 1298px );
+                -webkit-transform-style: preserve-3d;
+            }
+            #cube img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                -webkit-backface-visibility: hidden;
+            }
+            .front {
+                -webkit-transform: translateZ( -648px );
+            }
+            .right {
+                -webkit-transform: translateX( 648px ) rotateY( -90deg );
+            }
+            .left {
+                -webkit-transform: translateX( -648px ) rotateY( 90deg );
+            }
+            .rear {
+                -webkit-transform: translateZ( -1295px ) rotateY( 180deg );
+            }
+            .roof {
+                -webkit-transform: translateY( -648px ) rotateX( -90deg );
+            }
+            .floor {
+                -webkit-transform: translateY( 648px ) rotateX( 90deg );
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="container">
+            <div id="viewer">
+                <div id="cube">
+                    <img class="front" src="texture/cube0000.jpg" alt="" />
+                    <img class="right" src="texture/cube0001.jpg" alt="" />
+                    <img class="rear" src="texture/cube0002.jpg" alt="" />
+                    <img class="left" src="texture/cube0003.jpg" alt="" />
+                    <img class="roof" src="texture/cube0004.jpg" alt="" />
+                    <img class="floor" src="texture/cube0005.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+        </script>
+    </body>
+</html>
+
