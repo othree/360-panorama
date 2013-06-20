@@ -15,7 +15,7 @@
                 to   { transform: rotateY(-360deg); }
             }
             html, body {
-                background-color: #000000;
+                background-color: #fff;
                 margin: 0px;
                 overflow: hidden;
                 width: 100%;
@@ -38,6 +38,7 @@
                 -webkit-transition: -webkit-transform 3s;
                 transition: transform 3s;
                 -webkit-perspective: 1500px;
+                -webkit-perspective-origin: 320px  180px;
                 perspective: 1500px;
                 -webkit-transform-style: preserve-3d;
                 transform-style: preserve-3d;
@@ -51,6 +52,7 @@
                 //-webkit-animation: spin 12s infinite linear;
                 //animation: spin 12s infinite linear;
             }
+            #cube svg,
             #cube img {
                 position: absolute;
                 width: 1500px;
@@ -67,37 +69,47 @@
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
             }
-            .up72 {
-                -webkit-transform: rotateX(-30deg) rotateY(-72deg) translateZ(-500px);
-            }
             .up360 {
-                -webkit-transform: rotateX(-30deg) translateZ(-500px);
-                -webkit-clip-path: polygon(25% 25%, 50% 25%, 50% 50%);
-                clip-path: url(#clip1);
+                -webkit-transform: rotateY(0deg) rotateX(-26.565deg) translateZ(-1032px) translateY(112px);
+            }
+            .up72 {
+                -webkit-transform: rotateY(-72deg) rotateX(-26.565deg) translateZ(-1032px) translateY(112px);
+            }
+            .up144 {
+                -webkit-transform: rotateY(-144deg) rotateX(-26.565deg) translateZ(-1032px) translateY(112px);
+            }
+            .up216 {
+                -webkit-transform: rotateY(-216deg) rotateX(-26.565deg) translateZ(-1032px) translateY(112px);
             }
             .up288 {
-                -webkit-transform: rotateX(-30deg) rotateY(-288deg) translateZ(-500px);
+                -webkit-transform: rotateY(-288deg) rotateX(-26.565deg) translateZ(-1032px) translateY(112px);
+            }
+            .bottom360 {
+                -webkit-transform: rotateY(-36deg) rotateX(26.565deg) translateZ(-1032px) translateY(-112px);
+            }
+            .bottom288 {
+                -webkit-transform: rotateY(36deg) rotateX(26.565deg) translateZ(-1032px) translateY(-112px);
+            }
+            .bottom216 {
+                -webkit-transform: rotateY(108deg) rotateX(26.565deg) translateZ(-1032px) translateY(-112px);
+            }
+            .bottom144 {
+                -webkit-transform: rotateY(180deg) rotateX(26.565deg) translateZ(-1032px) translateY(-112px);
+            }
+            .bottom72 {
+                -webkit-transform: rotateY(252deg) rotateX(26.565deg) translateZ(-1032px) translateY(-112px);
             }
 
             .top {
-                -webkit-transform: rotateX(-90deg) translateZ(-750px);
-                transform: rotateX(-90deg) translateZ(-750px);
+                -webkit-transform: rotateX(-90deg) translateZ(-1032px) translateY(-112px);
             }
             .bottom {
-                -webkit-transform: rotateX(90deg) translateZ(-750px);
-                transform: rotateX(90deg) translateZ(-750px);
+                -webkit-transform: rotateX(90deg) translateZ(-1032px) translateY(-112px);
             }
         </style>
     </head>
     <body>
 
-        <svg width="0" height="0">
-            <defs>
-                <clipPath id="clip1">
-                    <path d="M 750 0 L 1500 441 L 1323 1500 L 177 1500 L 0 441 Z" />
-                </clipPath>
-            </defs>
-        </svg>
         <div id="container">
             <div id="viewer">
                 <div id="cube">
@@ -106,13 +118,108 @@
                     <!-- <img class="up144" src="texture/up144.jpg" alt="" /> -->
                     <!-- <img class="up216" src="texture/up216.jpg" alt="" /> -->
                     <!-- <img class="up288" src="texture/up288.jpg" alt="" /> -->
-                    <img class="up360" src="texture/up360.jpg" alt="" />
                     <!-- <img class="bottom72" src="texture/bottom72.jpg" alt="" /> -->
                     <!-- <img class="bottom144" src="texture/bottom144.jpg" alt="" /> -->
                     <!-- <img class="bottom216" src="texture/bottom216.jpg" alt="" /> -->
                     <!-- <img class="bottom288" src="texture/bottom288.jpg" alt="" /> -->
                     <!-- <img class="bottom360" src="texture/bottom360.jpg" alt="" /> -->
                     <!-- <img class="bottom" src="texture/.jpg" alt="" /> -->
+                    <svg class="top" width="1500" height="1500">
+                        <g>
+                            <clipPath id="clip1">
+                                <polygon points="750 73, 1500 619, 1214 1500, 286 1500, 0 619" />
+                            </clipPath>
+                        </g>
+                        <image width="1500" height="1500" xlink:href="texture/top.jpg" alt="" clip-path="url(#clip1)" />
+                    </svg>
+                    <svg class="bottom" width="1500" height="1500">
+                        <g>
+                            <clipPath id="clip1">
+                                <polygon points="750 73, 1500 619, 1214 1500, 286 1500, 0 619" />
+                            </clipPath>
+                        </g>
+                        <image width="1500" height="1500" xlink:href="texture/bottom.jpg" alt="" clip-path="url(#clip1)" />
+                    </svg>
+                    <svg class="up72" width="1500" height="1500">
+                        <g>
+                            <clipPath id="clip1">
+                                <polygon points="750 1427, 1500 881, 1214 0, 286 0, 0 881" />
+                            </clipPath>
+                        </g>
+                        <image width="1500" height="1500" xlink:href="texture/up72.jpg" alt="" clip-path="url(#clip1)" />
+                    </svg>
+                    <svg class="up144" width="1500" height="1500">
+                        <g>
+                            <clipPath id="clip1">
+                                <polygon points="750 1427, 1500 881, 1214 0, 286 0, 0 881" />
+                            </clipPath>
+                        </g>
+                        <image width="1500" height="1500" xlink:href="texture/up144.jpg" alt="" clip-path="url(#clip1)" />
+                    </svg>
+                    <svg class="up216" width="1500" height="1500">
+                        <g>
+                            <clipPath id="clip1">
+                                <polygon points="750 1427, 1500 881, 1214 0, 286 0, 0 881" />
+                            </clipPath>
+                        </g>
+                        <image width="1500" height="1500" xlink:href="texture/up216.jpg" alt="" clip-path="url(#clip1)" />
+                    </svg>
+                    <svg class="up288" width="1500" height="1500">
+                        <g>
+                            <clipPath id="clip1">
+                                <polygon points="750 1427, 1500 881, 1214 0, 286 0, 0 881" />
+                            </clipPath>
+                        </g>
+                        <image width="1500" height="1500" xlink:href="texture/up288.jpg" alt="" clip-path="url(#clip1)" />
+                    </svg>
+                    <svg class="up360" width="1500" height="1500">
+                        <g>
+                            <clipPath id="clip1">
+                                <polygon points="750 1427, 1500 881, 1214 0, 286 0, 0 881" />
+                            </clipPath>
+                        </g>
+                        <image width="1500" height="1500" xlink:href="texture/up360.jpg" alt="" clip-path="url(#clip1)" />
+                    </svg>
+                    <svg class="bottom72" width="1500" height="1500">
+                        <g>
+                            <clipPath id="clip1">
+                                <polygon points="750 73, 1500 619, 1214 1500, 286 1500, 0 619" />
+                            </clipPath>
+                        </g>
+                        <image width="1500" height="1500" xlink:href="texture/bottom72.jpg" alt="" clip-path="url(#clip1)" />
+                    </svg>
+                    <svg class="bottom144" width="1500" height="1500">
+                        <g>
+                            <clipPath id="clip1">
+                                <polygon points="750 73, 1500 619, 1214 1500, 286 1500, 0 619" />
+                            </clipPath>
+                        </g>
+                        <image width="1500" height="1500" xlink:href="texture/bottom144.jpg" alt="" clip-path="url(#clip1)" />
+                    </svg>
+                    <svg class="bottom216" width="1500" height="1500">
+                        <g>
+                            <clipPath id="clip1">
+                                <polygon points="750 73, 1500 619, 1214 1500, 286 1500, 0 619" />
+                            </clipPath>
+                        </g>
+                        <image width="1500" height="1500" xlink:href="texture/bottom216.jpg" alt="" clip-path="url(#clip1)" />
+                    </svg>
+                    <svg class="bottom288" width="1500" height="1500">
+                        <g>
+                            <clipPath id="clip1">
+                                <polygon points="750 73, 1500 619, 1214 1500, 286 1500, 0 619" />
+                            </clipPath>
+                        </g>
+                        <image width="1500" height="1500" xlink:href="texture/bottom288.jpg" alt="" clip-path="url(#clip1)" />
+                    </svg>
+                    <svg class="bottom360" width="1500" height="1500">
+                        <g>
+                            <clipPath id="clip1">
+                                <polygon points="750 73, 1500 619, 1214 1500, 286 1500, 0 619" />
+                            </clipPath>
+                        </g>
+                        <image width="1500" height="1500" xlink:href="texture/bottom360.jpg" alt="" clip-path="url(#clip1)" />
+                    </svg>
                 </div>
             </div>
         </div>
