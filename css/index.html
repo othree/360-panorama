@@ -37,7 +37,7 @@
                 overflow: hidden;
                 -webkit-transition: -webkit-transform 3s;
                 transition: transform 3s;
-                -webkit-perspective: 1500px;
+                -webkit-perspective: 750px;
                 perspective: 1500px;
                 -webkit-transform-style: preserve-3d;
                 transform-style: preserve-3d;
@@ -48,6 +48,7 @@
                 position: relative;
                 -webkit-transform-style: preserve-3d;
                 transform-style: preserve-3d;
+                -webkit-transform-origin: 50% 50% 750px;
                 //-webkit-animation: spin 12s infinite linear;
                 //animation: spin 12s infinite linear;
             }
@@ -68,28 +69,28 @@
                 backface-visibility: hidden;
             }
             .front {
-                -webkit-transform: translateZ(-750px);
-                transform: translateZ(-750px);
+                -webkit-transform: translateZ(750px) translateZ(-750px);
+                transform: translateZ(750px) translateZ(-750px);
             }
             .right {
-                -webkit-transform: rotateY(-90deg) translateZ(-750px);
-                transform: rotateY(-90deg) translateZ(-750px);
+                -webkit-transform: translateZ(750px) rotateY(-90deg) translateZ(-750px);
+                transform: translateZ(750px) rotateY(-90deg) translateZ(-750px);
             }
             .left {
-                -webkit-transform: rotateY(90deg) translateZ(-750px);
-                transform: rotateY(90deg) translateZ(-750px);
+                -webkit-transform: translateZ(750px) rotateY(90deg) translateZ(-750px);
+                transform: translateZ(750px) rotateY(90deg) translateZ(-750px);
             }
             .rear {
-                -webkit-transform: translateZ(750px) rotateY( 180deg );
-                transform: translateZ(750px) rotateY( 180deg );
+                -webkit-transform: translateZ(750px) translateZ(750px) rotateY( 180deg );
+                transform: translateZ(750px) translateZ(750px) rotateY( 180deg );
             }
             .roof {
-                -webkit-transform: rotateX(-90deg) translateZ(-750px);
-                transform: rotateX(-90deg) translateZ(-750px);
+                -webkit-transform: translateZ(750px) rotateX(-90deg) translateZ(-750px);
+                transform: translateZ(750px) rotateX(-90deg) translateZ(-750px);
             }
             .floor {
-                -webkit-transform: rotateX(90deg) translateZ(-750px);
-                transform: rotateX(90deg) translateZ(-750px);
+                -webkit-transform: translateZ(750px) rotateX(90deg) translateZ(-750px);
+                transform: translateZ(750px) rotateX(90deg) translateZ(-750px);
             }
         </style>
     </head>
