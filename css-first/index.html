@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>css transform 3d cube panorama demo</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <style>
+            @-webkit-keyframes spin {
+                from { -webkit-transform: rotateY(0); }
+                to   { -webkit-transform: rotateY(-360deg); }
+            }
+            html, body {
+                background-color: #000000;
+                margin: 0px;
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+            }
+            #container, #viewer {
+                width: 100%;
+                height: 100%;
+            }
+            #container {
+            }
+            #viewer {
+                position: absolute;
+                left: 50%;
+                top: 100px;
+                margin-left: -320px;
+                width: 640px;
+                height: 360px;
+                overflow: hidden;
+                -webkit-transition: -webkit-transform 3s;
+                -moz-transition: -moz-transform 3s;
+                -webkit-perspective: 1500px;
+                -moz-perspective: 1500px;
+                -webkit-transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+            }
+            #cube {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                -webkit-transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+                //-webkit-animation: spin 12s infinite linear;
+            }
+            #cube img {
+                position: absolute;
+                width: 1500px;
+                height: 1500px;
+                top: 50%;
+                left: 50%;
+                margin-top: -750px;
+                margin-left: -750px;
+                opacity: 0.8;
+                -webkit-transition: -webkit-transform 3s;
+                -moz-transition: -moz-transform 3s;
+                -webkit-transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+                -webkit-backface-visibility: hidden;
+                -moz-backface-visibility: hidden;
+            }
+            .front {
+                -webkit-transform: translateZ(-750px);
+                -moz-transform: translateZ(-750px);
+            }
+            .right {
+                -webkit-transform: rotateY(-90deg) translateZ(-750px);
+                -moz-transform: rotateY(-90deg) translateZ(-750px);
+            }
+            .left {
+                -webkit-transform: rotateY(90deg) translateZ(-750px);
+                -moz-transform: rotateY(90deg) translateZ(-750px);
+            }
+            .rear {
+                -webkit-transform: translateZ(750px) rotateY( 180deg );
+                -moz-transform: translateZ(750px) rotateY( 180deg );
+            }
+            .roof {
+                -webkit-transform: rotateX(-90deg) translateZ(-750px);
+                -moz-transform: rotateX(-90deg) translateZ(-750px);
+            }
+            .floor {
+                -webkit-transform: rotateX(90deg) translateZ(-750px);
+                -moz-transform: rotateX(90deg) translateZ(-750px);
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="container">
+            <div id="viewer">
+                <div id="cube">
+                    <img class="front" src="texture/cube0000.jpg" alt="" />
+                    <img class="right" src="texture/cube0001.jpg" alt="" />
+                    <img class="rear" src="texture/cube0002.jpg" alt="" />
+                    <img class="left" src="texture/cube0003.jpg" alt="" />
+                    <img class="roof" src="texture/cube0004.jpg" alt="" />
+                    <img class="floor" src="texture/cube0005.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <script src="jquery-2.0.2.min.js"></script>
+        <script>
+(function() {
+  var x1,
+      y1,
+      moving = false,
+      $viewer = $('#viewer'),
+      $cube = $('#cube'),
+      w_v = $viewer.width(), // width of viewer
+      h_v = $viewer.height(), // height of viewer
+      c_x_deg = 0, // current x
+      c_y_deg = 0,
+      perspective = 750; // current y
+
+  $(document).on('mousedown', function(e) {
+    x1 = e.pageX;
+    y1 = e.pageY;
+
+    moving = true;
+    e.preventDefault();
+  });
+
+  $(document).on('mousemove', function(e) {
+    if( moving === true ) {
+      x2 = e.pageX;
+      y2 = e.pageY;
+
+      var dist_x = x2 - x1,
+          dist_y = y2 - y1,
+          perc_x = dist_x / w_v,
+          perc_y = dist_y / h_v,
+          deg_x = Math.atan2(dist_y, perspective) / Math.PI * 180,
+          deg_y = -Math.atan2(dist_x, perspective) / Math.PI * 180,
+          i,
+          vendors = ['-webkit-', '-moz-', ''];
+
+      c_x_deg += deg_x;
+      c_y_deg += deg_y;
+      c_x_deg = Math.min(90, c_x_deg);
+      c_x_deg = Math.max(-90, c_x_deg);
+
+      c_y_deg %= 360;
+
+      deg_x = c_x_deg;
+      deg_y = c_y_deg;
+
+      for(i in vendors) {
+        $cube.css(vendors[i] + 'transform', 'rotateX(' + deg_x + 'deg) rotateY(' + deg_y + 'deg)');
+      }
+
+      x1 = x2;
+      y1 = y2;
+    }
+    e.preventDefault();
+  }).on('mouseup', function(e) {
+    moving = false;
+    e.preventDefault();
+  });
+
+})();
+        </script>
+    </body>
+</html>
+
