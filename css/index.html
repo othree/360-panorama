@@ -119,8 +119,8 @@
       $cube = $('#cube'),
       w_v = $viewer.width(), // width of viewer
       h_v = $viewer.height(), // height of viewer
-      c_x_deg = 0, // current x
-      c_y_deg = 0,
+      c_yaw = 0, // current x
+      c_pitch = 0,
       perspective = 525; // current y
 
   $(document).on('mousedown', function(e) {
@@ -140,23 +140,23 @@
           dist_y = y2 - y1,
           perc_x = dist_x / w_v,
           perc_y = dist_y / h_v,
-          deg_x = Math.atan2(dist_y, perspective) / Math.PI * 180,
-          deg_y = -Math.atan2(dist_x, perspective) / Math.PI * 180,
+          yaw = Math.atan2(dist_y, perspective) / Math.PI * 180,
+          pitch = -Math.atan2(dist_x, perspective) / Math.PI * 180,
           i,
           vendors = ['-webkit-', '-moz-', ''];
 
-      c_x_deg += deg_x;
-      c_y_deg += deg_y;
-      c_x_deg = Math.min(90, c_x_deg);
-      c_x_deg = Math.max(-90, c_x_deg);
+      c_yaw += yaw;
+      c_pitch += pitch;
+      c_yaw = Math.min(90, c_yaw);
+      c_yaw = Math.max(-90, c_yaw);
 
-      c_y_deg %= 360;
+      c_pitch %= 360;
 
-      deg_x = c_x_deg;
-      deg_y = c_y_deg;
+      yaw = c_yaw;
+      pitch = c_pitch;
 
       for(i in vendors) {
-        $cube.css(vendors[i] + 'transform', 'rotateX(' + deg_x + 'deg) rotateY(' + deg_y + 'deg)');
+        $cube.css(vendors[i] + 'transform', 'rotateX(' + yaw + 'deg) rotateY(' + pitch + 'deg)');
       }
 
       x1 = x2;
