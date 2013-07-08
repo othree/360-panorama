@@ -18,6 +18,7 @@ WebGL
 
 
 <img alt="equirectangular earth" src="doc/images/Equirectangular-projection.jpg" width="500" />
+<img alt="earth" src="doc/images/earth.jpg" width="500" />
 
 * Problems:
   * ProblemsMobile device not support WebGL
