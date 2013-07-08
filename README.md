@@ -50,7 +50,7 @@ Demo: [CSS cubic](http://codepen.io/linmic/pen/hGmBp)
 * Ref: [Converting an Equirectangular Panorama to Cubic Faces](http://vinayhacks.blogspot.tw/2010/11/converting-equirectangular-panorama-to.html)
   * CPAN Panotools for erect2cubic 
   * [Hugin](http://hugin.sourceforge.net/) for nona
-  * /Applications/Hugin/HuginTools/nona 
+  * `/Applications/Hugin/HuginTools/nona`
   * [See Here](https://github.com/othree/360-panorama/tree/master/css/texture)
 
 How to control mouse drag?
